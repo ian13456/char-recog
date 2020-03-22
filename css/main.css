@@ -137,6 +137,7 @@ body {
   left: 0;
   margin: 1em;
   transition: 1s all ease;
+  z-index: 1000;
 }
 
 .notification {
@@ -168,5 +169,35 @@ body {
 
   to {
     top: 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #wrapper {
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  #title {
+    margin-top: 1em;
+    font-size: 3em;
+    text-align: center;
+  }
+
+  #main {
+    /* height: 100%; */
+    flex-direction: column;
+  }
+
+  #main #center {
+    order: -1;
+  }
+
+  #main #characters {
+    margin-top: 2em;
+  }
+
+  #main #controls {
+    order: 1;
   }
 }
