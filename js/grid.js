@@ -59,7 +59,7 @@ class Grid {
     } else {
       for (let r = 0; r < CANVAS_CELL_HC; r++) {
         for (let c = 0; c < CANVAS_CELL_WC; c++) {
-          this.cells[r][c] = 1
+          this.cells[r][c] = 0
         }
       }
     }
@@ -79,7 +79,7 @@ class Grid {
 
     this.p5.push()
     this.p5.noStroke()
-    this.p5.fill(this.cells[r][c] * 255)
+    this.p5.fill((1 - this.get(r, c)) * 255)
     this.p5.rect(mappedC, mappedR, this.cellWidth, this.cellWidth)
     this.p5.pop()
   }
@@ -91,14 +91,42 @@ class Grid {
 
     if (r >= CANVAS_CELL_HC || r < 0 || c >= CANVAS_CELL_WC || c < 0) return
 
-    let value = 0
-    if (this.p5.mouseButton === this.p5.RIGHT) value = 1
+    let value = 1
+    if (this.p5.mouseButton === this.p5.RIGHT) value = 0
 
     this.setCell(r, c, value)
   }
 
+  noisify = (intensity = 0.3) => {
+    const cells = deepCopy(this.cells)
+
+    for (let r = 0; r < CANVAS_CELL_HC; r++) {
+      for (let c = 0; c < CANVAS_CELL_WC; c++) {
+        const noise = (Math.random() - 0.5) * intensity
+
+        const value = cells[r][c]
+
+        const newValue = Math.min(Math.max(0, value + noise), 255)
+        cells[r][c] = newValue
+      }
+    }
+
+    return cells
+    // console.log(this.cells)
+  }
+
   setCell = (r, c, value) => {
     this.cells[r][c] = value
+  }
+
+  get = (r, c) => this.cells[r][c]
+
+  clear = () => {
+    this.initialize()
+  }
+
+  toggleDraw = () => {
+    this.enableDraw = !this.enableDraw
   }
 
   XYToRC = (x, y) => {

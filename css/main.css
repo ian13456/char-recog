@@ -100,3 +100,47 @@ body {
 .p5Canvas {
   display: block;
 }
+
+.notification-wrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 1em;
+  transition: 1s all ease;
+}
+
+.notification {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #1b2a49;
+  border: white 3px solid;
+  padding: 0.4em;
+  transition: 1s all ease;
+  animation-duration: 1s;
+  animation-name: popup;
+  margin: 0.5em 0;
+}
+
+.notification img {
+  width: 2em;
+}
+
+.notification span {
+  color: white;
+  margin-left: 1em;
+}
+
+@keyframes popup {
+  from {
+    top: -100%;
+  }
+
+  to {
+    top: 0;
+  }
+}

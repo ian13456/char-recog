@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
+    <div id="notif-wrapper" class="notification-wrapper">
+      <!-- <div class="notification"><img src="assets/information.svg" /> <span>information</span></div> -->
+    </div>
+
     <div id="wrapper">
       <h1 id="title">Digit Recognition</h1>
       <div id="main">
@@ -19,6 +23,7 @@
           <button id="train">TRAIN</button>
           <button id="noise">NOISE</button>
           <button id="predict">PREDICT</button>
+          <button id="clear">CLEAR</button>
         </div>
 
         <div id="my-cvs"></div>
@@ -44,10 +49,15 @@
       </div>
     </div>
 
+    <script src="js/net.js"></script>
     <script src="js/data.js"></script>
     <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/neuron.js"></script>
+    <script src="js/domElements.js"></script>
     <script src="js/grid.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/notifManager.js"></script>
     <script src="js/sketch.js"></script>
   </body>
 </html>

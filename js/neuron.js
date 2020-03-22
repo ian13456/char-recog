@@ -24,12 +24,14 @@ class Neuron {
 
   derivativeSigmoid = x => x * (1 - x)
 
-  step = (samples, targets) => {
+  step = samples => {
     const e = []
 
+    samples = shuffle([...samples])
+
     for (let j = 0; j < samples.length; j++) {
-      const sample = samples[j]
-      const target = targets[j]
+      const sample = samples[j][0]
+      const target = samples[j][1]
 
       const Z = this.output(sample)
 
@@ -40,7 +42,7 @@ class Neuron {
       this.w[0] -= this.eta * dEdW0
 
       for (let i = 0; i < sample.length; i++) {
-        const dEd = dEdW0 * this.samples[i]
+        const dEd = dEdW0 * sample[i]
         this.w[i + 1] -= this.eta * dEd
       }
     }
@@ -52,7 +54,7 @@ class Neuron {
 
   test = sample => {
     const yHat = this.sigmoid(this.output(sample))
-    return Math.round(yHat)
+    return yHat
   }
 
   output = sample => {
