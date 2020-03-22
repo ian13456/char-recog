@@ -130,8 +130,8 @@ class Grid {
   }
 
   XYToRC = (x, y) => {
-    const mappedX = Math.floor(x / CANVAS_CELL_DIM)
-    const mappedY = Math.floor(y / CANVAS_CELL_DIM)
+    const mappedX = Math.floor(x / this.cellWidth)
+    const mappedY = Math.floor(y / this.cellWidth)
 
     return { r: mappedY, c: mappedX }
   }
