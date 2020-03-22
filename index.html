@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digit Recognition</title>
+    <title>Character Recognition</title>
 
     <script src="libs/p5.js"></script>
     <script src="libs/p5.sound.js"></script>
@@ -26,25 +26,35 @@
           <button id="clear">CLEAR</button>
         </div>
 
-        <div id="my-cvs"></div>
+        <div id="center">
+          <div id="my-cvs"></div>
+          <div id="center-buttons">
+            <button id="save">Save</button>
+            <button id="reset">Reset</button>
+          </div>
+        </div>
 
         <div id="numbers">
           <div>
-            <div id="num1" class="num"></div>
-            <div id="num2" class="num"></div>
-            <div id="num3" class="num"></div>
+            <div id="num0" class="char"></div>
+            <div id="num1" class="char"></div>
+            <div id="num2" class="char"></div>
           </div>
           <div>
-            <div id="num4" class="num"></div>
-            <div id="num5" class="num"></div>
-            <div id="num6" class="num"></div>
+            <div id="num3" class="char"></div>
+            <div id="num4" class="char"></div>
+            <div id="num5" class="char"></div>
           </div>
           <div>
-            <div id="num7" class="num"></div>
-            <div id="num8" class="num"></div>
-            <div id="num9" class="num"></div>
+            <div id="num6" class="char"></div>
+            <div id="num7" class="char"></div>
+            <div id="num8" class="char"></div>
           </div>
-          <div id="num0" class="num"></div>
+          <div>
+            <div id="num9" class="char"></div>
+            <div id="char0" class="char"></div>
+            <div id="char1" class="char"></div>
+          </div>
         </div>
       </div>
     </div>

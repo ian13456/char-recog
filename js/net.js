@@ -10,13 +10,13 @@ class Net {
   initializeNeurons = () => {
     this.neurons = []
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 12; i++) {
       this.neurons.push(new Neuron(35, this.eta))
     }
   }
 
   train = trainingData => {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 12; i++) {
       const neuron = this.neurons[i]
 
       const samples = deepCopy(trainingData).map(arr => [arr[0], arr[1] === i ? 1 : 0])
@@ -46,7 +46,7 @@ class Net {
 
     const errors = []
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 12; i++) {
       errors.push(this.neurons[i].test(cells))
     }
 

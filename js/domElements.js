@@ -4,6 +4,9 @@ const noiseDOM = document.getElementById('noise')
 const predictDOM = document.getElementById('predict')
 const clearDOM = document.getElementById('clear')
 const notificationWrapperDOM = document.getElementById('notif-wrapper')
+const centerButtonsDOM = document.getElementById('center-buttons')
+const saveButtonDOM = document.getElementById('save')
+const resetButtonDOM = document.getElementById('reset')
 
 /* -------------------------------------------------------------------------- */
 /*                                  LISTENERS                                 */
@@ -32,4 +35,14 @@ clearDOM.addEventListener('click', e => {
   e.preventDefault()
   mainGrid.grid.clear()
   NotificationManager.getInstance().addNotification('Canvas cleared!')
+})
+
+saveButtonDOM.addEventListener('click', e => {
+  e.preventDefault()
+  main.save()
+})
+
+resetButtonDOM.addEventListener('click', e => {
+  e.preventDefault()
+  main.reset()
 })

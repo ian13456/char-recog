@@ -37,6 +37,28 @@ body {
   justify-content: center;
 }
 
+#center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#center-buttons {
+  display: none;
+  align-items: center;
+  margin-top: 0.5em;
+}
+
+#center-buttons button {
+  width: 8em;
+  padding: 0.5em;
+  margin: 0.5em;
+  background: white;
+  cursor: pointer;
+  border: none;
+}
+
 #controls {
   display: flex;
   flex-direction: column;
@@ -55,14 +77,17 @@ body {
   border: none;
 }
 
+#center-buttons button:focus,
 #controls button:focus {
   outline: none;
 }
 
+#center-buttons button:hover,
 #controls button:hover {
   transform: scale(1.2);
 }
 
+#center-buttons button:active,
 #controls button:active {
   transform: scale(1.1);
 }
@@ -79,20 +104,20 @@ body {
   align-items: center;
 }
 
-.num {
+.char {
   margin: 1em;
   cursor: pointer;
 }
 
-.num:hover {
+.char:hover {
   filter: invert(1);
 }
 
-.num:active {
+.char:active {
   transform: scale(1.1);
 }
 
-.num,
+.char,
 #my-cvs {
   border: 10px solid white;
 }
@@ -120,8 +145,8 @@ body {
   background: #1b2a49;
   border: white 3px solid;
   padding: 0.4em;
-  transition: 1s all ease;
-  animation-duration: 1s;
+  transition: 2s all ease;
+  animation-duration: 2s;
   animation-name: popup;
   margin: 0.5em 0;
 }
