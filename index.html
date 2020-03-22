@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digit Recognition</title>
+
+    <script src="libs/p5.js"></script>
+    <script src="libs/p5.sound.js"></script>
+
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1 id="title">Digit Recognition</h1>
+      <div id="main">
+        <div id="controls">
+          <button id="generate">GENERATE</button>
+          <button id="train">TRAIN</button>
+          <button id="noise">NOISE</button>
+          <button id="predict">PREDICT</button>
+        </div>
+
+        <div id="my-cvs"></div>
+
+        <div id="numbers">
+          <div>
+            <div id="num1" class="num"></div>
+            <div id="num2" class="num"></div>
+            <div id="num3" class="num"></div>
+          </div>
+          <div>
+            <div id="num4" class="num"></div>
+            <div id="num5" class="num"></div>
+            <div id="num6" class="num"></div>
+          </div>
+          <div>
+            <div id="num7" class="num"></div>
+            <div id="num8" class="num"></div>
+            <div id="num9" class="num"></div>
+          </div>
+          <div id="num0" class="num"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/grid.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sketch.js"></script>
+  </body>
+</html>
