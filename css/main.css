@@ -85,7 +85,7 @@ body {
 
 #center-buttons button:hover,
 #controls button:hover {
-  transform: scale(1.2);
+  filter: invert(1);
 }
 
 #center-buttons button:active,
