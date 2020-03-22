@@ -97,7 +97,7 @@ class Grid {
     this.setCell(r, c, value)
   }
 
-  noisify = (intensity = 0.3) => {
+  noisify = (intensity = 0.5) => {
     const cells = deepCopy(this.cells)
 
     for (let r = 0; r < CANVAS_CELL_HC; r++) {
