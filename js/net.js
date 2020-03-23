@@ -40,7 +40,7 @@ class Net {
   }
 
   predict = cells => {
-    const GUESS_THRESHOLD = 0.2
+    const GUESS_THRESHOLD = 0.1
 
     cells = cells.flat()
 
