@@ -61,11 +61,13 @@ class Main {
     this.generated = false
     this.generating = true
 
+    const cachedDrawings = deepCopy(mainGrid.getValues())
+
     mainGrid.grid.toggleDraw()
 
     const runN = n => {
       if (n > 11) {
-        this.finishGenerating()
+        this.finishGenerating(cachedDrawings)
         return
       }
 
@@ -172,8 +174,9 @@ class Main {
     scoresDOM.appendChild(listWrapper)
   }
 
-  finishGenerating = () => {
+  finishGenerating = cached => {
     mainGrid.grid.clear()
+    mainGrid.grid.initialize(cached)
     mainGrid.grid.toggleDraw()
     NotificationManager.getInstance().addNotification('Done generating!')
     this.generating = false
