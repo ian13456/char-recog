@@ -119,6 +119,8 @@ class Main {
     this.trained = true
   }
 
+  clearPrediction = () => (scoresDOM.innerHTML = '')
+
   predict = () => {
     if (mainGrid.grid.cells.flat().filter(e => e !== 0).length === 0) {
       NotificationManager.getInstance().addNotification('Cannot predict empty canvas!')
@@ -129,14 +131,45 @@ class Main {
       NotificationManager.getInstance().addNotification('Not trained yet! Wild guess...')
     }
 
-    const index = this.net.predict(mainGrid.getValues())
+    const { index, scores } = this.net.predict(mainGrid.getValues())
 
-    if (!index) {
+    if (index === null) {
       mainGrid.grid.initialize(ERROR)
       NotificationManager.getInstance().addNotification('No character predicted...')
     } else {
       mainGrid.grid.initialize(this.charCanvases[index].getValues())
     }
+
+    this.clearPrediction()
+
+    const listWrapper = document.createElement('table')
+    const createNode = (i, score, type = 'td') => {
+      const node = document.createElement('tr')
+      if (i === index) {
+        node.classList.add('highlighted')
+      }
+
+      const first = document.createElement(type)
+      first.innerHTML = i
+
+      const second = document.createElement(type)
+      second.innerHTML = typeof score === 'number' ? score.toFixed(3) : score
+
+      node.appendChild(first)
+      node.appendChild(second)
+
+      return node
+    }
+
+    listWrapper.appendChild(createNode('#', 'score', 'th'))
+
+    for (let i = 0; i < scores.length; i++) {
+      const score = scores[i]
+      const node = createNode(i, score)
+      listWrapper.appendChild(node)
+    }
+
+    scoresDOM.appendChild(listWrapper)
   }
 
   finishGenerating = () => {

@@ -44,14 +44,21 @@ class Net {
 
     cells = cells.flat()
 
-    const errors = []
+    const scores = []
 
     for (let i = 0; i < 12; i++) {
-      errors.push(this.neurons[i].test(cells))
+      scores.push(this.neurons[i].test(cells))
     }
 
-    const prediction = indexOfBiggest(errors)
-    if (errors[prediction] < GUESS_THRESHOLD) return null
-    return prediction
+    const prediction = indexOfBiggest(scores)
+    if (scores[prediction] < GUESS_THRESHOLD)
+      return {
+        index: null,
+        scores
+      }
+    return {
+      index: prediction,
+      scores
+    }
   }
 }

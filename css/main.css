@@ -162,6 +162,37 @@ body {
   margin-left: 1em;
 }
 
+#scores * {
+  border: none;
+  text-align: center;
+  padding: 0.1em 0.3em;
+}
+
+#scores table {
+  color: white;
+  margin: 2em;
+  font-size: 1.6em;
+  border: solid 1px white;
+}
+
+#scores tr {
+  cursor: pointer;
+}
+
+#scores th {
+  background: white;
+  color: #1b2a49;
+}
+
+#scores tr.highlighted {
+  background: green;
+}
+
+#scores tr:hover {
+  background: green;
+  filter: hue-rotate(90deg);
+}
+
 @keyframes popup {
   from {
     top: -100%;
